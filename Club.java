@@ -58,6 +58,14 @@ public class Club
     public int joinedInYear(int year){
         return (year);
     }
-        
+        /**
+* Remove from the club's collection all members who
+* joined in the given month, and return them stored
+* in a separate collection object.
+* @param month The month of the membership.
+* @param year The year of the membership.
+* @return The members who joined in the given month and year.
+*/
+public ArrayList<Membership> purge(int month, int year){
     }
 
