@@ -41,6 +41,7 @@ public class Club
      * 
      */
      public int joinedInMonth(int month){
+         // question 4
          if (month >= 12 || month <= 1)  {
              System.out.println("month is out of range of 1-12 ");
              return 0;
@@ -59,13 +60,29 @@ public class Club
         return (year);
     }
         /**
-* Remove from the club's collection all members who
-* joined in the given month, and return them stored
-* in a separate collection object.
-* @param month The month of the membership.
-* @param year The year of the membership.
-* @return The members who joined in the given month and year.
-*/
-public ArrayList<Membership> purge(int month, int year){
+     * Remove from the club's collection all members who
+        * joined in the given month, and return them stored
+        * in a separate collection object.
+       * @param month The month of the membership.
+       * @param year The year of the membership.
+      * @return The members who joined in the given month and year.
+      */
+     public ArrayList<Membership> purge(int month, int year){
+        // question 5
+         if (month < 1 || month > 12) {
+            System.out.println("Month cannot be outside 1-12");
+            return null;
+        }
+        else {
+            ArrayList<Membership> purgeList = new ArrayList<>();
+            for(Membership m : members){
+                if (m.getMonth() == month && m.getYear() == year){
+                    purgeList.add(m);
+                }
+                
+        }
+        members.removeAll (purgeList); 
+         return purgeList;
     }
-
+   }
+}
