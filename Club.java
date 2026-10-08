@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * Store details of club memberships.
  * 
@@ -70,19 +72,30 @@ public class Club
      public ArrayList<Membership> purge(int month, int year){
         // question 5
          if (month < 1 || month > 12) {
-            System.out.println("Month cannot be outside 1-12");
+            System.out.println("invalid month");
             return null;
         }
-        else {
-            ArrayList<Membership> purgeList = new ArrayList<>();
-            for(Membership m : members){
-                if (m.getMonth() == month && m.getYear() == year){
-                    purgeList.add(m);
-                }
-                
+         if (year < 1990 || year > 2009) {
+            System.out.println("invalid year");
+            return null;
         }
+        
+            ArrayList<Membership> purgeList = new ArrayList<>();
+         //   for(Membership m : members){
+                //if (m.getMonth() == month && m.getYear() == year){
+                   // purgeList.add(m);
+               // }
+             Iterator<Membership>it = members.iterator();
+             while(it.hasNext()){
+                 Membership m = it.next();
+                 if (m.getMonth()==month && m.getYear()==year){
+                     purgeList.add(m);
+                     it.remove();
+                    
+                 }
+             }
+        
         members.removeAll (purgeList); 
          return purgeList;
     }
-   }
 }
